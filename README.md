@@ -6,12 +6,12 @@ Instructions:
 2.  Add has_attached_file :attachment to model (or whatever you want to call it in place of :attachment) and add :attachment to attr_accessible
 3.	Create a migration that adds the following columns to your database:
 
-		"attachment_file_name"
-    "attachment_content_type"
-    "attachment_file_size"
-    "attachment_updated_at"
+		-attachment_file_name 
+		-attachment_content_type
+		-attachment_file_size
+		-attachment_updated_at"
 
-		Can do individually as above, or with the following:
+Can do individually as above, or with the following:
 
 		class AddAvatarColumnsToUser < ActiveRecord::Migration
 		  def self.up
@@ -26,11 +26,12 @@ Instructions:
 		end
 		
 4.	rake db:migrate
-5.	Make sure your form_for has the :hmtl part like the following: <%= form_for @user, :html => { :multipart => true } do |f| %>
+5.	Make sure your form_for has the :hmtl part like the following: 
+    <%= form_for @user, :html => { :multipart => true } do |f| %>
 6.	Add <%= f.file_field :attachment %> to your new and edit views
-7.	Add following code to show view (or wherever you want it displayed)
-		<% if user.avatar.exists? %>
+7.	Add following code to show view (or wherever you want it displayed):
+    <% if user.avatar.exists? %>
 			<a href = "<%= user.avatar.url %>">Watch My Video</a>
 														or
 			<!-- #image_tag user.avatar.url, :size => "50x50" -->
-			<% end %>
+		<% end %>
