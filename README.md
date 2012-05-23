@@ -32,8 +32,7 @@ Can do individually as above, or with the following:
 
 6.	Add `<%= f.file_field :attachment %>` to your new and edit views
 7.	Add following code to show view (or wherever you want it displayed):
-    `<% if user.avatar.exists? %>
-			<a href = "<%= user.avatar.url %>">Watch My Video</a>
-														or
-			<!-- #image_tag user.avatar.url, :size => "50x50" -->
-		<% end %>`
+
+<% if user.avatar.exists? %>
+	<%= image_tag user.avatar.url, :size => "50x50" %>
+<% end %>
