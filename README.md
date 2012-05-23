@@ -13,7 +13,7 @@ Instructions:
 
 Can do individually as above, or with the following:
 
-		class AddAvatarColumnsToUser < ActiveRecord::Migration
+		class AddAttachmentColumnsToUser < ActiveRecord::Migration
 		  def self.up
 		    change_table :users do |t|
 		      t.has_attached_file :avatar
@@ -33,6 +33,6 @@ Can do individually as above, or with the following:
 6.	Add `<%= f.file_field :attachment %>` to your new and edit views
 7.	Add following code to show view (or wherever you want it displayed):
 
-		<% if user.avatar.exists? %>
-			<%= image_tag user.avatar.url, :size => "50x50" %>
+		<% if user.attachment.exists? %>
+			<%= image_tag user.attachment.url, :size => "50x50" %>
 		<% end %>
